@@ -16,6 +16,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static com.google.android.material.appbar.AppBarLayout.LayoutParams.SCROLL_FLAG_EXIT_UNTIL_COLLAPSED;
+import static com.google.android.material.appbar.AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL;
+
 public class ScrollingActivity extends AppCompatActivity {
     AppBarLayout appBarLayout;
 
@@ -41,10 +44,15 @@ public class ScrollingActivity extends AppCompatActivity {
 
 
         // to prevent collapsing
-//        AppBarLayout.LayoutParams p = (AppBarLayout.LayoutParams) toolBarLayout.getLayoutParams();
-//        p.setScrollFlags(0);
-//        toolBarLayout.setLayoutParams(p);
+        AppBarLayout.LayoutParams p = (AppBarLayout.LayoutParams) toolBarLayout.getLayoutParams();
+        p.setScrollFlags(0);
+        toolBarLayout.setLayoutParams(p);
 
+
+        // to enable collapsing again
+        AppBarLayout.LayoutParams p2 = (AppBarLayout.LayoutParams) toolBarLayout.getLayoutParams();
+        p.setScrollFlags(SCROLL_FLAG_SCROLL| SCROLL_FLAG_EXIT_UNTIL_COLLAPSED);
+        toolBarLayout.setLayoutParams(p2);
 
 
 
